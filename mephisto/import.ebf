@@ -1,0 +1,4 @@
+run 'tags.ctl'
+run 'taggings.ctl'
+run 'posts.ctl'
+run 'comments.ctl'

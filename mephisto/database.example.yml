@@ -1,0 +1,14 @@
+etl_execution:
+  database: roboblog_etl_execution
+  adapter:  mysql
+
+mephisto:
+  database: mephisto_production
+  adapter:  mysql
+  username: root
+  password:
+  host:     localhost
+
+roboblog:
+  database: roboblog_development
+  adapter:  mysql
