@@ -2,20 +2,14 @@ source :in, {
   :type => :database,
   :target => 'mephisto',
   :table  => 'contents',
+  :select => 'contents.*, article_id as post_id',
   :conditions => "type = 'Comment'"
 },
-[:id, :article_id, :author, :author_url, :author_email, :author_openid_authority, :body, :body_html, :created_at, :updated_at, :type]
-
-copy :article_id, :post_id
+[:id, :post_id, :author, :author_url, :author_email, :author_openid_authority, :body, :body_html, :created_at, :updated_at]
 
 destination :out, {
-  :file => 'data/comments.txt'
-}
-
-post_process :bulk_import, {
-  :file     => 'data/comments.txt',
+  :type     => :database,
   :truncate => true,
-  :columns  => [:id, :post_id, :author, :author_url, :author_email, :author_openid_authority, :body, :body_html, :created_at, :updated_at],
   :target   => 'roboblog',
   :table    => 'comments'
 }
