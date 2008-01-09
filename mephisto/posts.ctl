@@ -6,7 +6,7 @@ source :in, {
   :select => 'contents.*, permalink as slug, comments_count as approved_comments_count',
   :conditions => ["type = 'Article'", "section_id = 1"]
 },
-[:id, :title, :slug, :body, :body_html, :created_at, :updated_at, :approved_comments_count]
+[:id, :title, :slug, :body, :body_html, :published_at, :created_at, :updated_at, :approved_comments_count]
 
 class PostsProcessor < ETL::Processor::RowProcessor
   def process(row)
@@ -21,7 +21,7 @@ end
 destination :out, {
   :type => :database,
   :truncate => true,
-  :columns  => [:id, :title, :slug, :body, :body_html, :created_at, :updated_at, :approved_comments_count],
+  :columns  => [:id, :title, :slug, :body, :body_html, :published_at, :created_at, :updated_at, :approved_comments_count],
   :target   => 'roboblog',
   :table    => 'posts'
 }
