@@ -1,5 +1,5 @@
 etl_execution:
-  database: roboblog_etl_execution
+  database: enki_etl_execution
   adapter:  mysql
 
 mephisto:
@@ -9,6 +9,6 @@ mephisto:
   password:
   host:     localhost
 
-roboblog:
-  database: roboblog_development
+enki:
+  database: enki_development
   adapter:  mysql

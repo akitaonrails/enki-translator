@@ -7,6 +7,7 @@ Imports mephisto blogs into Enki
   sudo gem install activewarehouse-etl
   cd mephisto/
   cp database.example.yml database.yml # edit to taste
+  mysqladmin -u root create enki_etl_execution
   etl import.ebf
 
 == Author
