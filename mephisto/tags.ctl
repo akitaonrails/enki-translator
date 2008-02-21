@@ -28,6 +28,6 @@ post_process :bulk_import, {
   :file     => 'data/tags.txt',
   :truncate => true,
   :columns  => [:id, :name],
-  :target   => 'roboblog',
+  :target   => 'enki',
   :table    => 'tags'
 }

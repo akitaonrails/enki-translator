@@ -22,7 +22,7 @@ destination :out, {
   :type => :database,
   :truncate => true,
   :columns  => [:id, :title, :slug, :body, :body_html, :published_at, :created_at, :updated_at, :approved_comments_count],
-  :target   => 'roboblog',
+  :target   => 'enki',
   :table    => 'posts'
 }
 

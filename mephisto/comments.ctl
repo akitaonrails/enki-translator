@@ -10,6 +10,6 @@ source :in, {
 destination :out, {
   :type     => :database,
   :truncate => true,
-  :target   => 'roboblog',
+  :target   => 'enki',
   :table    => 'comments'
 }

@@ -33,7 +33,6 @@ transform :tag_id, :foreign_key_lookup, :resolver => SectionTagResolver.new(:tag
 class TagIdProcessor < ETL::Processor::RowProcessor
   def process(row)
     row[:tag_id] = row[:section_id] unless row[:section_id].blank?
-    row.update(:taggable_type => 'Post')
   end
 end
 
@@ -43,7 +42,7 @@ destination :out, {
   :file => 'data/taggings.txt'
 },
 {
-  :order => [:article_id, :tag_id, :taggable_type, :created_at],
+  :order => [:article_id, :tag_id, :created_at],
   :virtual => {
     :created_at => Time.now.utc
   }
@@ -52,7 +51,7 @@ destination :out, {
 post_process :bulk_import, {
   :file     => 'data/taggings.txt',
   :truncate => true,
-  :columns  => [:taggable_id, :tag_id, :taggable_type, :created_at],
-  :target   => 'roboblog',
+  :columns  => [:taggable_id, :tag_id, :created_at],
+  :target   => 'enki',
   :table    => 'taggings'
 }
