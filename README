@@ -1,0 +1,19 @@
+= Enki Translator
+
+Imports mephisto blogs into Enki
+
+== Quick Start
+
+  sudo gem install activewarehouse-etl
+  cd mephisto/
+  cp database.example.yml database.yml # edit to taste
+  etl import.ebf
+
+== Author
+
+Xavier Shay
+xavier@rhnh.net
+
+== License
+
+GPL - See LICENSE  
