@@ -33,6 +33,7 @@ transform :tag_id, :foreign_key_lookup, :resolver => SectionTagResolver.new(:tag
 class TagIdProcessor < ETL::Processor::RowProcessor
   def process(row)
     row[:tag_id] = row[:section_id] unless row[:section_id].blank?
+    row
   end
 end
 
