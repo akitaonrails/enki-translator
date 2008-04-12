@@ -10,13 +10,12 @@ source :in, {
 
 class PostsProcessor < ETL::Processor::RowProcessor
   def process(row)
-    row[:slug] = row[:permalink]
-    row[:approved_comments_count] = row[:comments_count]
+    row[:body] = row[:body].gsub(/<macro:code lang="(.*)">/, '--- \1').gsub(/<\/macro:code>/, '---')
     row.except(:permalink, :comments_count)
   end
 end
 
-#before_write PostsProcessor
+before_write PostsProcessor
 
 destination :out, {
   :type => :database,
