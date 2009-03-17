@@ -1,0 +1,4 @@
+mephisto/*.log
+data
+mephisto/database.yml
+source_data

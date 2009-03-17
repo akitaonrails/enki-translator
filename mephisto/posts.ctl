@@ -10,7 +10,8 @@ source :in, {
 
 class PostsProcessor < ETL::Processor::RowProcessor
   def process(row)
-    row[:body] = row[:body].gsub(/<macro:code lang="(.*)">/, '--- \1').gsub(/<\/macro:code>/, '---')
+    row[:body].gsub!(/<macro:code lang="(.*)">/, '--- \1').gsub(/<\/macro:code>/, '---')
+		row[:body].gsub!(/<macro:code>/, '---')
     row.except(:permalink, :comments_count)
   end
 end
